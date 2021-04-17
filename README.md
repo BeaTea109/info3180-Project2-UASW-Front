@@ -3,7 +3,7 @@
 
 ## Install the dependencies
 ```bash
-npm
+npm install
 ```
 ### Ensuring you have quasar installed
 
