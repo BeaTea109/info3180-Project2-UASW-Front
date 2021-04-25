@@ -20,8 +20,9 @@
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
+    "http-parser-js": "^0.5.3",
     "quasar": "^1.0.0",
-    "server-static": "^2.0.5",
+    "server-static": "^2.0.4",
     "vuex": "^3.6.0"
   },
   "devDependencies": {
