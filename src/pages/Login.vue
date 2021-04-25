@@ -53,7 +53,7 @@ export default {
     return {
       user: new User("", ""),
       loading: false,
-      message: ""
+      message: "."
     };
   },
   computed: {
