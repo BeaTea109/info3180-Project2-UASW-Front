@@ -32,7 +32,6 @@
         </b-form-row>
         <b-form-row>
           <b-form-group
-            class="ml-3"
             id="input-group-fname"
             label="First Name:"
             label-for="input-fname"
@@ -45,7 +44,7 @@
             ></b-form-input>
           </b-form-group>
           <b-form-group
-            class="ml-3"
+            class="ml-4"
             id="input-group-lname"
             label="Last Name:"
             label-for="input-lname"
@@ -60,7 +59,6 @@
         </b-form-row>
         <b-form-row>
           <b-form-group
-            class="ml-3"
             id="input-group-email"
             label="Email:"
             label-for="input-email"
@@ -76,7 +74,7 @@
           <b-form-group
             id="input-group-location"
             label="Location:"
-             class="ml-3"
+             class="ml-4"
             label-for="location"
           >
             <b-form-input
@@ -125,7 +123,11 @@
         >
           {{ message }}
         </div>
-        <b-button type="submit" variant="success">Register</b-button>
+        <b-button :disabled="loading" type="submit" variant="success"><span
+            v-show="loading"
+            class="spinner-border spinner-border-sm"
+          ></span>
+          <span v-show="!loading">Register</span></b-button>
 
       </b-form>
     </b-card>
@@ -141,6 +143,7 @@ export default {
       user: new User("", "", ""),
       submitted: false,
       successful: false,
+      loading: false,
       message: "",
       photo: []
     };
@@ -152,13 +155,13 @@ export default {
   },
   mounted() {
     if (this.loggedIn) {
-      this.$router.push("/register");
+      this.$router.push("/explore");
     }
   },
   methods: {
     handleRegister() {
       this.message = "";
-
+      this.loading = true;
       const upload_url =
         " https://api.cloudinary.com/v1_1/djhycr4me/image/upload";
       const fd = new FormData();
@@ -172,6 +175,7 @@ export default {
           data => {
             this.message = "User added Successfully";
             this.successful = true;
+            this.loading = false;
           },
           error => {
             this.message =
@@ -179,6 +183,7 @@ export default {
               error.message ||
               error.toString();
             this.successful = false;
+            this.loading = false;
           }
         );
       });

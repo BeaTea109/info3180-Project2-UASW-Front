@@ -30,12 +30,12 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-button block type="submit" variant="success">
+          <b-button :disabled="loading" block type="submit" variant="success">
             <span
               v-show="loading"
               class="spinner-border spinner-border-sm"
             ></span>
-            <span>Login</span></b-button
+            <span v-show="!loading">Login</span></b-button
           >
           <div v-if="message" class="alert alert-danger" role="alert">
             {{ message }}
@@ -63,7 +63,7 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/login");
+      this.$router.push("/explore");
     }
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
       if (this.user.username && this.user.password) {
         this.$store.dispatch("auth/login", this.user).then(
           () => {
-            this.$router.push("/");
+            this.$router.push("/explore");
           },
           error => {
             this.loading = false;

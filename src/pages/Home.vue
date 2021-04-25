@@ -9,7 +9,9 @@
           align-self="center"
         >
           <div style="width:50%">
-            <b-row><h1><strong>Buy and Sell Cars Online</strong></h1></b-row>
+            <b-row
+              ><h1><strong>Buy and Sell Cars Online</strong></h1></b-row
+            >
             <b-row
               ><p>
                 United Auto Sales provides the fastest, easiest and most user
@@ -37,7 +39,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    }
+  },
+  created() {
+    if (this.loggedIn) {
+      this.$router.push("/explore");
+    }
+  }
+};
 </script>
 
 <style scoped></style>
