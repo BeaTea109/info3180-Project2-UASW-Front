@@ -1,6 +1,6 @@
 import authHeader from "./auth-header";
 import axios from 'axios';
-const API_URL = "https://info3180-project-2-backend.herokuapp.comapi/";
+const API_URL = "https://info3180-project-2-backend.herokuapp.com/api/";
 
 class CarService {
 
