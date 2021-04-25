@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://info3180-project-2-backend.herokuapp.com/api/auth/";
+const API_URL = "localhost:5050/api/auth/";
 
 class AuthService {
   login(user) {
@@ -39,7 +39,7 @@ class AuthService {
     fd.append("photo", user.photo);
 
 
-    return axios.post("https://info3180-project-2-backend.herokuapp.com/api/" + "register", fd);
+    return axios.post("localhost:5050/api/" + "register", fd);
   }
 }
 

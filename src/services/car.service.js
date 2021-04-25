@@ -35,7 +35,11 @@ class CarService {
     });
   }
 
-
+  addFavourite(car_id){
+    return axios.post(API_URL + `cars/${car_id}/favourite`, {}, {
+      headers: authHeader()
+    });
+  }
 }
 
 export default new CarService();

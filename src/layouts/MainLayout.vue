@@ -37,7 +37,7 @@
               >Explore</b-nav-item
             >
           </router-link>
-          <router-link to="/users/" v-slot="{ href, navigate, isActive }">
+          <router-link :to="`/users/${this.$store.state.auth.user.user.id}`" v-slot="{ href, navigate, isActive }">
             <b-nav-item :active="isActive" :href="href" @click="navigate"
               >My Profile</b-nav-item
             >
